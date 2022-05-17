@@ -9,8 +9,8 @@ const tamagotchi = {
   },
 
   eat: function () {
-    if (this.food < 5) {
-      this.food++;
+    if (this.meal < 5) {
+      this.meal++;
     }
     this.mood--;
   },
@@ -19,7 +19,7 @@ const tamagotchi = {
     if (this.energy < 5) {
       this.energy++;
     }
-    this.food--;
+    this.meal--;
   },
 
   play: function () {
@@ -30,16 +30,16 @@ const tamagotchi = {
   },
 
   getStatus: function () {
-    if (this.food <= 0 || this.energy <= 0 || this.mood <= 0) {
+    if (this.meal <= 0 || this.energy <= 0 || this.mood <= 0) {
       console.log(`${this.name} умер :(`);
       return false;
     }
-    const foodStatus = this.food < 3 ? 'Я голоден' : 'Я сыт';
-    const energyStatus = this.energy < 3 ? 'Я хочу спать' : 'Я не хочу спать';
-    const moodStatus = this.mood < 3 ? 'Мне скучно' : 'Мне весело';
+    let mealStatus = this.meal < 3 ? 'Я голоден' : 'Я сыт'
+    let energyStatus = this.energy < 3 ? 'Я хочу спать' : 'Я не хочу спать'
+    let moodStatus = this.mood < 3 ? 'Мне скучно' : 'Мне весело'
 
     console.log(
-      `Еда: ${foodStatus} (${this.food}); Энергия: ${energyStatus}(${this.energy}); Натсроение: ${moodStatus} (${this.mood});`
-    );
+      `Еда: ${mealStatus} (${this.meal}), Энергия: ${energyStatus}(${this.energy}), Настроение: ${moodStatus} (${this.mood})`
+    )
   },
-};
+}
